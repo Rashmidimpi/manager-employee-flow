@@ -1,0 +1,51 @@
+<div class="mat-card-dialogue"> 
+    <h2 mat-dialog-title>{{ title }}</h2>
+
+    <mat-dialog-content [formGroup]="createRecordform">
+
+        <mat-form-field appearance="outline" class="formfield" style="width: -webkit-fill-available;">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="first_name" placeholder="First Name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="formfield" style="width: -webkit-fill-available;">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="last_name" placeholder="Last Name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="formfield" style="width: -webkit-fill-available;">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address" placeholder="Address">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: -webkit-fill-available;">
+            <mat-label>Birth Date</mat-label>
+            <input matInput [matDatepicker]="startpicker" formControlName="birth_date">
+            <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+            <mat-datepicker #startpicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="formfield" style="width: -webkit-fill-available;">
+            <mat-label>Mobile</mat-label>
+            <input type="number" matInput formControlName="mobile" placeholder="Mobile">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="formfield" style="width: -webkit-fill-available;">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" placeholder="City">
+        </mat-form-field>
+
+
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button class="mat-raised-button" (click)="close()">
+            Close
+        </button> &nbsp;
+        <button class="mat-raised-button " (click)="save()">
+            Done
+        </button>
+    </mat-dialog-actions>
+
+</div>

@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Manager-Employee Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/signup">Signup</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- signup form -->
+<div class="mat-card-wrraper">
+
+    <mat-card style="width: 30%;">
+        <div>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+                <h3 class="h3 mb-3 font-weight-normal text-center">Register Form </h3>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput placeholder="Email" formControlName="email">
+                    <!-- <mat-error *ngIf="errorHandlingEmail('email', 'required')">
+                You must provide a <strong>email.</strong>
+            </mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name" formControlName="first_name">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name" formControlName="last_name">
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline">
+
+                    <mat-label>password</mat-label>
+                    <input type="password" matInput formControlName="password">
+                    <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button> -->
+                    <!-- <mat-error *ngIf="errorHandlingEmail('password', 'required')">
+                You must provide <strong>password.</strong>
+            </mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Address" formControlName="address">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Birth Date</mat-label>
+                    <input matInput [matDatepicker]="startpicker" formControlName="dob">
+                    <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startpicker></mat-datepicker>
+                </mat-form-field>
+                <br>
+                <button mat-raised-button>Register</button>
+
+            </form>
+
+
+        </div>
+
+    </mat-card>
+</div>

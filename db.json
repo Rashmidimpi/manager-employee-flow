@@ -1,0 +1,33 @@
+{
+  "manager": [
+    {
+      "id": 1,
+      "email": "rashmi@gmail.com",
+      "first_name": "Rashmi",
+      "last_name": "Neha",
+      "password": "123456",
+      "address": "Jharkhand",
+      "birth_date": "12-06-1999"
+    }
+  ],
+  "employee": [
+    {
+      "id": 1,
+      "first_name": "Dimpi",
+      "last_name": "Neha",
+      "address": "Jharkhand",
+      "birth_date": "12-06-1999",
+      "mobile": "1234567890",
+      "city": "cbsa"
+    },
+    {
+      "id": 2,
+      "first_name": "Rashmi",
+      "last_name": "Neha",
+      "address": "Jsr",
+      "birth_date": "2021-06-24T18:30:00.000Z",
+      "mobile": 9570002751,
+      "city": "cbsa"
+    }
+  ]
+}
