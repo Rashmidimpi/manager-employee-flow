@@ -26,16 +26,8 @@
       "password": "726173686d696e656861",
       "dob": "1996-09-18T18:30:00.000Z",
       "id": 3
-    },
-    {
-      "first_name": "Ravi",
-      "last_name": "Anand",
-      "address": "Cbsa",
-      "email": "ravi@gmail.com",
-      "password": "3132333435363738",
-      "dob": "2020-03-11T18:30:00.000Z",
-      "id": 4
     }
+   
   ],
   "employee": [
     {
