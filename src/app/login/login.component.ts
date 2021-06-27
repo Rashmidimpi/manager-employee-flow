@@ -15,20 +15,32 @@ export class LoginComponent implements OnInit {
 
   constructor(private apiService: ApihandlerService,public router: Router, public fb: FormBuilder) {
     this.loginForm = this.fb.group({
-      email: ['',Validators.required],
-      password: [''], 
+      email: ['',[Validators.required, ,Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]], 
     })
    }
 
   ngOnInit(): void {
   }
 
+  ascii_to_hexa(str) {
+    var arr1 = [];
+    for (var n = 0, l = str.length; n < l; n++) {
+      var hex = Number(str.charCodeAt(n)).toString(16);
+      arr1.push(hex);
+    }
+    return arr1.join('');
+  }
+
   onSubmit() {
     console.log(this.loginForm.value);
+
+    if (this.loginForm.valid) {
     var response_data = [];
     let url = 'manager';
     let apidata = this.loginForm.value;
-    console.log('apidata :: ', apidata);
+      apidata['password'] = this.ascii_to_hexa(this.loginForm.value.password);
+    
 
     this.apiService.loginrequest(apidata).subscribe((data) => {
       console.log(data);
@@ -39,14 +51,16 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("isLoggedin", "false");
         this.openSwal('Please enter valid credentials', 'error');
       }
-      
 
     },
     (error) => {
       console.log(error);
       this.openSwal('Something went wrong', 'error');
     })
-  }
+  
+    }
+  
+}
 
   openSwal(title, icon) {
 
@@ -59,11 +73,11 @@ export class LoginComponent implements OnInit {
       denyButtonText: `Don't save`,
     }).then((result) => {
       if (result.isConfirmed) {
-        // Swal.fire('Saved!', '', 'success')
-        // this.router.navigate(['/review'], { queryParams: { test_id: this.test_id } });
+       
       } else if (result.isDenied) {
 
       }
     })
   }
+
 }

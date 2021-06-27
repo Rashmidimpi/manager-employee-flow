@@ -8,18 +8,36 @@
       "password": "123456",
       "address": "Jharkhand",
       "birth_date": "12-06-1999"
+    },
+    {
+      "first_name": "Rashmi",
+      "last_name": "Neha",
+      "address": "Jsr",
+      "email": "rashmineha@gmail.com",
+      "password": "726173686d696e656861",
+      "dob": "1996-09-18T18:30:00.000Z",
+      "id": 2
+    },
+    {
+      "first_name": "Dimpi",
+      "last_name": "Neha",
+      "address": "Cbsa",
+      "email": "dimpi@gmail.com",
+      "password": "726173686d696e656861",
+      "dob": "1996-09-18T18:30:00.000Z",
+      "id": 3
+    },
+    {
+      "first_name": "Ravi",
+      "last_name": "Anand",
+      "address": "Cbsa",
+      "email": "ravi@gmail.com",
+      "password": "3132333435363738",
+      "dob": "2020-03-11T18:30:00.000Z",
+      "id": 4
     }
   ],
   "employee": [
-    {
-      "id": 1,
-      "first_name": "Dimpi",
-      "last_name": "Neha",
-      "address": "Jharkhand",
-      "birth_date": "12-06-1999",
-      "mobile": "1234567890",
-      "city": "cbsa"
-    },
     {
       "id": 2,
       "first_name": "Rashmi",
@@ -27,7 +45,25 @@
       "address": "Jsr",
       "birth_date": "2021-06-24T18:30:00.000Z",
       "mobile": 9570002751,
-      "city": "cbsa"
+      "city": "JSR"
+    },
+    {
+      "id": 3,
+      "first_name": "Dimpi",
+      "last_name": "Neha",
+      "address": "Jsr",
+      "birth_date": "2017-02-15T18:30:00.000Z",
+      "mobile": 8210153330,
+      "city": "Jamshedpur"
+    },
+    {
+      "first_name": "Neha",
+      "last_name": "Rashmi",
+      "address": "Jsr",
+      "birth_date": "1996-09-18T18:30:00.000Z",
+      "mobile": 8210153330,
+      "city": "Jharkhand",
+      "id": 4
     }
   ]
 }

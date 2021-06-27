@@ -14,7 +14,7 @@ Run `npm install` to install dependencies.
 
 
 ## Development server
-Run `json-server --watch db.json` for Json Server. Db server run on `http://localhost:4200/`.
+Run `json-server --watch db.json` for Json Server. Db server run on `http://localhost:3000/`.
 
 Run `ng serve` for a angular dev server. Navigate to `http://localhost:4200/`. 
 

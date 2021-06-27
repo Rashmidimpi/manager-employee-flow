@@ -26,17 +26,41 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
                     <input type="email" matInput placeholder="Email" formControlName="email">
+
+                    <mat-error
+                    *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
                    
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>First Name</mat-label>
                     <input matInput placeholder="First Name" formControlName="first_name">
+
+                    <mat-error
+                    *ngIf="registerForm.controls['first_name'].hasError('pattern') && !registerForm.controls['first_name'].hasError('required')">
+                    Only Alphabet allowed.
+                </mat-error>
+                <mat-error *ngIf="registerForm.controls['first_name'].hasError('required')">
+                    First Name is <strong>required</strong>
+                </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Last Name</mat-label>
                     <input matInput placeholder="Last Name" formControlName="last_name">
+
+                    <mat-error
+                    *ngIf="registerForm.controls['last_name'].hasError('pattern') && !registerForm.controls['last_name'].hasError('required')">
+                    Only Alphabet allowed.
+                </mat-error>
+                <mat-error *ngIf="registerForm.controls['last_name'].hasError('required')">
+                    Last Name is <strong>required</strong>
+                </mat-error>
                 </mat-form-field>
 
 
@@ -44,12 +68,23 @@
 
                     <mat-label>password</mat-label>
                     <input type="password" matInput formControlName="password">
+                    <mat-error
+                    *ngIf="registerForm.controls['password'].hasError('minlength') && !registerForm.controls['password'].hasError('required')">
+                    Password must be 8 characters long, we need another 
+                    {{registerForm.controls['password'].errors.minlength.requiredLength - registerForm.controls['password'].errors.minlength.actualLength}} characters
+                </mat-error>
+                <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
                   
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Address</mat-label>
                     <input matInput placeholder="Address" formControlName="address">
+                    <mat-error *ngIf="registerForm.controls['address'].hasError('required')">
+                        Address is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
@@ -57,6 +92,13 @@
                     <input matInput [matDatepicker]="startpicker" formControlName="dob">
                     <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
                     <mat-datepicker #startpicker></mat-datepicker>
+
+                    <mat-error *ngIf="registerForm.get('dob').hasError('matDatepickerMax')">
+                        Date cannot be greater then today.
+                      </mat-error>
+                    <mat-error *ngIf="registerForm.controls['dob'].hasError('required')">
+                        Date of Birth is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
                 <br>
                 <button mat-raised-button>Register</button>

@@ -5,16 +5,35 @@
     <mat-form-field appearance="outline" class="formfield" style="width: -webkit-fill-available;">
         <mat-label>First Name</mat-label>
         <input matInput formControlName="first_name" placeholder="First Name">
+
+        <mat-error
+                    *ngIf="editRecordform.controls['first_name'].hasError('pattern') && !editRecordform.controls['first_name'].hasError('required')">
+                    Only Alphabet allowed.
+                </mat-error>
+                <mat-error *ngIf="editRecordform.controls['first_name'].hasError('required')">
+                    First Name is <strong>required</strong>
+                </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="formfield" style="width: -webkit-fill-available;">
         <mat-label>Last Name</mat-label>
         <input matInput formControlName="last_name" placeholder="Last Name">
+
+        <mat-error
+        *ngIf="editRecordform.controls['last_name'].hasError('pattern') && !editRecordform.controls['last_name'].hasError('required')">
+        Only Alphabet allowed.
+    </mat-error>
+    <mat-error *ngIf="editRecordform.controls['last_name'].hasError('required')">
+        Last Name is <strong>required</strong>
+    </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="formfield" style="width: -webkit-fill-available;">
         <mat-label>Address</mat-label>
         <input matInput formControlName="address" placeholder="Address">
+        <mat-error *ngIf="editRecordform.controls['address'].hasError('required')">
+            Address is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" style="width: -webkit-fill-available;">
@@ -22,16 +41,31 @@
         <input matInput [matDatepicker]="startpicker" formControlName="birth_date">
         <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
         <mat-datepicker #startpicker></mat-datepicker>
+
+        <mat-error *ngIf="editRecordform.get('birth_date').hasError('matDatepickerMax')">
+            Date cannot be greater then today.
+          </mat-error>
+        <mat-error *ngIf="editRecordform.controls['birth_date'].hasError('required')">
+            Date of Birth is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="formfield" style="width: -webkit-fill-available;">
         <mat-label>Mobile</mat-label>
         <input matInput formControlName="mobile" placeholder="Mobile">
+
+        <mat-error *ngIf="editRecordform.controls['mobile'].hasError('required')">
+            Mobile number is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="formfield" style="width: -webkit-fill-available;">
         <mat-label>City</mat-label>
         <input matInput formControlName="city" placeholder="City">
+
+        <mat-error *ngIf="editRecordform.controls['city'].hasError('required')">
+            City is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
     

@@ -12,11 +12,9 @@ export class AddRecordDialogComponent implements OnInit {
 
   constructor( private fb: FormBuilder, private dialogRef: MatDialogRef<AddRecordDialogComponent> ) {
 
-   
-
     this.createRecordform = this.fb.group({
-      first_name: ['', Validators.required],
-      last_name: ['', Validators.required],
+      first_name: ['', [Validators.required,  Validators.pattern('[a-zA-Z ]*')]],
+      last_name: ['', [Validators.required,  Validators.pattern('[a-zA-Z ]*')]],
       address: ['', Validators.required],
       birth_date: ['', Validators.required],
       mobile: ['',Validators.required],
@@ -29,8 +27,12 @@ export class AddRecordDialogComponent implements OnInit {
   }
 
   save(){
-   
+    
+     if (this.createRecordform.valid) {
       this.dialogRef.close(this.createRecordform.value);
+     
+    }
+   
     
   }
 

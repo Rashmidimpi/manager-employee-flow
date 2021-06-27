@@ -24,12 +24,12 @@ export class EditRecordDialogComponent implements OnInit {
     console.log("item", this.item);
     
     this.editRecordform = this.fb.group({
-      first_name: [this.item.first_name],
-      last_name: [this.item.last_name],
-      address: [this.item.address],
-      birth_date: [this.item.birth_date],
-      mobile: [this.item.mobile],
-      city: [this.item.city],
+      first_name: [this.item.first_name,[Validators.required,  Validators.pattern('[a-zA-Z ]*')]],
+      last_name: [this.item.last_name,[Validators.required,  Validators.pattern('[a-zA-Z ]*')]],
+      address: [this.item.address, Validators.required],
+      birth_date: [this.item.birth_date, Validators.required],
+      mobile: [this.item.mobile, Validators.required],
+      city: [this.item.city, Validators.required],
       
     });
     console.log(' editRecordDialog ', this.item);

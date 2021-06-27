@@ -47,18 +47,30 @@ export class EmployeetableComponent implements OnInit {
 
   deleterecord(id) {
     console.log(id);
-    this.apiService.deleterequest('employee/', id).subscribe(
-      (data) => {
-        console.log(data);
-        this.getEmployeeList()
-        this.getEmployeeList();
-        this.openSwal('Record Deleted', 'success');
-      },
-      (error) => {
-        console.log(error);
-        this.openSwal('Something went wrong', 'error');
-      })
-
+    
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiService.deleterequest('employee/', id).subscribe(response => {
+          console.log(response);
+          this.getEmployeeList()
+          
+          Swal.fire(
+            'Deleted!',
+            'Record has been deleted',
+            'success'
+          )
+        
+        })
+      }
+    })
 
   }
 
@@ -158,13 +170,14 @@ export class EmployeetableComponent implements OnInit {
       denyButtonText: `Don't save`,
     }).then((result) => {
       if (result.isConfirmed) {
-        // Swal.fire('Saved!', '', 'success')
-        // this.router.navigate(['/review'], { queryParams: { test_id: this.test_id } });
       } else if (result.isDenied) {
 
       }
     })
   }
+
+ 
+
 
 
 }
